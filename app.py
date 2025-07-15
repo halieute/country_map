@@ -209,7 +209,7 @@ def server(input, output, session):
     def update_departments():
         region = input.region()
         if region:
-            departments = sorted(gadm2[gadm2["NAME_1"] == region]["NAME_2"].unique())
+            departments = sorted(gadm2[gadm2["COUNTRY"] == region]["COUNTRY"].unique())
             session.send_input("department", choices=[""] + departments, selected="")
         else:
             session.send_input("department", choices=[""], selected="")
