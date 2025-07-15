@@ -32,17 +32,17 @@ Try the app here:
 
 ## 📷 Screenshots
 
-### Country Selection Example
-![Ecuador map]()
+### Municipality Search Example
+![Bilma map](docs/Example_bilma.png)
 
-### City Search Example
-![Berlin map]()
+### Departement Search Example
+![Doungas map](docs/Example_doungas.png)
 
 ---
 
 ## 🔧 Installation
 
-You can run the app locally using **Python ≥ 3.10**.
+You can run the app locally using **Python ≥ 3.11**.
 
 ### 1. Clone the Repository
 
