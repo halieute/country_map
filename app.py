@@ -164,6 +164,7 @@ app_ui = ui.page_fluid(
             ui.input_select("region", "Region:", choices=[""]),
             ui.input_select("department", "Department:", choices=[""]),
             ui.input_select("municipality", "Municipality:", choices=[""]),
+            ui.input_select("zoom_radius", "🔍 Zoom Radius (degrees):", choices=[0.05, 0.1, 0.5, 1, 1.5, 2], selected=1),
             ui.input_radio_buttons(
                 "inset",
                 "👁️ Inset map position:",
@@ -180,6 +181,11 @@ app_ui = ui.page_fluid(
             ui.input_action_button(
                 "update", "📊 Generate Map", class_="btn btn-primary mt-2"
             ),
+            ui.markdown("**💬 Credits:** Souleymane Maman Nouri Souley"),
+            ui.markdown("[👥 LinkedIn Profile](www.linkedin.com/in/souleymanemamannourisouley)"),
+            ui.markdown("[📄 GitHub Profile](https://github.com/halieute")
+            ui.markdown("📧 Email: souleymanemamannourisouley1995@gamil.com"),
+            class_="p-3 border shadow-sm bg-light",
             class_="p-3 border shadow-sm bg-light",
             width=4,
         ),
