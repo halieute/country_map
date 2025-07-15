@@ -25,20 +25,18 @@
 ## 🚀 Live Demo
 
 Try the app here:
-👉 []()
+👉 [https://01980bc6-c388-8af3-fdea-91742703c223.share.connect.posit.cloud](https://01980bc6-c388-8af3-fdea-91742703c223.share.connect.posit.cloud)
 
-We welcome your feedback to improve the tool. Please consider completing this short survey:
-👉 []()
 
 ---
 
 ## 📷 Screenshots
 
 ### Country Selection Example
-![Ecuador map](docs/example_bilma.png)
+![Ecuador map]()
 
 ### City Search Example
-![Berlin map](docs/example_doungas.png)
+![Berlin map]()
 
 ---
 
@@ -49,14 +47,14 @@ You can run the app locally using **Python ≥ 3.10**.
 ### 1. Clone the Repository
 
 ```bash
-
-cd country-map-generator
+https://github.com/halieute/country_map_generator_nig.git
+cd country_map_generator_nig
 ```
 
 ### 2. Create a Virtual Environment
 
 ```bash
-conda create -n country_map_app python=3.10
+conda create -n country_map_app python=3.12
 conda activate country_map_app
 ```
 
@@ -81,13 +79,17 @@ Then open your browser at:
 
 ```
 country-map-generator/
-├── app.py                                 # Main Shiny app
-├── world-administrative-boundaries.geojson  # GeoJSON with country boundaries
-├── requirements.txt                       # Python dependencies
-├── docs/
-│   ├── example_map_ecuador.png
-│   └── example_map_berlin.png
-├── README.md
+├── app.py             # Main Shiny app
+├── gadm41_NER_0.json  # GeoJSON with country boundaries
+├── gadm41_NER_1.json  # GeoJSON with first-level administrative boundaries
+├── gadm41_NER_2.json  # GeoJSON with second-level administrative boundaries
+├── gadm41_NER_3.json  # GeoJSON with third-level administrative boundaries
+├──  requirements.txt # Python dependencies
+├── LICENCE           # Project license
+├── docs/             # Documentation files
+│   ├── example_bilam.png # Example map with inset
+│   └── example_doungas.png # Example map with inset
+├── README.md        # Project overview and instructions
 ```
 
 ---
@@ -115,15 +117,12 @@ country-map-generator/
 
 ---
 
-## 👨‍💻 Authors
+## 👨‍💻 Author
 
-- **Dr. Cesar Ivan Alvarez** – University of Augsburg
-- **Dr. Ana Claudia Moreira** – University of Porto
-- **Dr. Izar Sinde** – Universidad Politécnica de Madrid
-- **MSc. Juan Gabriel Mollocana** – Universidad Politécnica Salesiana
+- **Souleymane Maman Nouri Souely** -Atlatic Technical University Cabo Verde
 
 📧 ssouley@uta.cv
-🔗 [LinkedIn Profile](https://www.linkedin.com/in/cesar-ivan-alvarez-0847253a/)
+🔗 [LinkedIn Profile](www.linkedin.com/in/souleymanemamannourisouley)
 
 ---
 
