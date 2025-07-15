@@ -222,9 +222,7 @@ def server(input, output, session):
             municipalities = sorted(
                 gadm3[gadm3["NAME_2"] == department]["NAME_3"].unique()
             )
-            ui.update_select(
-                "municipality", choices=[""] + municipalities, selected=""
-            )
+            ui.update_select("municipality", choices=[""] + municipalities, selected="")
         else:
             ui.update_select("municipality", choices=[""], selected="")
 
