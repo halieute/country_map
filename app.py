@@ -18,23 +18,33 @@ country_list = ["Niger"]
 # Map inset positions and continent extents
 inset_positions = {
     "upper right": [0.7, 0.6, 0.2, 0.2],
-    "bottom right": [0.7, 0.1, 0.2, 0.2]
+    "bottom right": [0.7, 0.1, 0.2, 0.2],
 }
-continentcoord = {
-    "Africa": [-20, 55, -35, 37]
-}
+continentcoord = {"Africa": [-20, 55, -35, 37]}
+
 
 class GoogleHybrid(GoogleTiles):
     def _image_url(self, tile):
         x, y, z = tile
         return f"https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}"
 
+
 last_error_message = ""
+
 
 def get_tiler(basemap_name):
     return GoogleHybrid() if basemap_name == "Google Hybrid" else OSM()
 
-def create_map(country, region, department, municipality, inset_pos="upper right", title="Study Area Map", basemap="OSM"):
+
+def create_map(
+    country,
+    region,
+    department,
+    municipality,
+    inset_pos="upper right",
+    title="Study Area Map",
+    basemap="OSM",
+):
     global last_error_message
     try:
         geometry = None
@@ -70,31 +80,60 @@ def create_map(country, region, department, municipality, inset_pos="upper right
         tiler = get_tiler(basemap)
         ax.add_image(tiler, 7)
         ax.set_extent([minx - 0.1, maxx + 0.1, miny - 0.1, maxy + 0.1])
-        geometry.plot(ax=ax, edgecolor='red', facecolor='none', linewidth=2, transform=ccrs.PlateCarree())
+        geometry.plot(
+            ax=ax,
+            edgecolor="red",
+            facecolor="none",
+            linewidth=2,
+            transform=ccrs.PlateCarree(),
+        )
 
         for geom in geometry:
             pt = geom.representative_point()
-            ax.text(pt.x, pt.y, label_text, ha='center', fontsize=9, bbox=dict(facecolor='white', alpha=0.6), transform=ccrs.PlateCarree())
+            ax.text(
+                pt.x,
+                pt.y,
+                label_text,
+                ha="center",
+                fontsize=9,
+                bbox=dict(facecolor="white", alpha=0.6),
+                transform=ccrs.PlateCarree(),
+            )
 
         ax.add_feature(cfeature.BORDERS, linestyle=":", edgecolor="black")
         ax.add_feature(cfeature.COASTLINE, linewidth=0.5)
-        ax.gridlines(draw_labels=True, linewidth=0.5, color='gray', alpha=0.5)
-        ax.add_artist(ScaleBar(1, units='km', location='lower left'))
-        ax.annotate("N", xy=(0.1, 0.9), xytext=(0.1, 0.8),
-                    arrowprops=dict(facecolor='black', width=5, headwidth=15),
-                    ha='center', va='center', fontsize=12, xycoords=ax.transAxes)
+        ax.gridlines(draw_labels=True, linewidth=0.5, color="gray", alpha=0.5)
+        ax.add_artist(ScaleBar(1, units="km", location="lower left"))
+        ax.annotate(
+            "N",
+            xy=(0.1, 0.9),
+            xytext=(0.1, 0.8),
+            arrowprops=dict(facecolor="black", width=5, headwidth=15),
+            ha="center",
+            va="center",
+            fontsize=12,
+            xycoords=ax.transAxes,
+        )
 
         plt.title(title, fontsize=13, weight="bold")
 
         # Inset
         continent_extent = continentcoord["Africa"]
-        inset_ax = fig.add_axes(inset_positions[inset_pos], projection=ccrs.PlateCarree())
+        inset_ax = fig.add_axes(
+            inset_positions[inset_pos], projection=ccrs.PlateCarree()
+        )
         inset_ax.set_extent(continent_extent)
         inset_tiler = OSM()
         inset_ax.add_image(inset_tiler, 2)
         inset_ax.add_feature(cfeature.BORDERS, linestyle=":", edgecolor="black")
         inset_ax.add_feature(cfeature.COASTLINE, linewidth=0.5)
-        gadm0[gadm0['NAME_0'] == country].plot(ax=inset_ax, edgecolor='red', facecolor='none', linewidth=2, transform=ccrs.PlateCarree())
+        gadm0[gadm0["NAME_0"] == country].plot(
+            ax=inset_ax,
+            edgecolor="red",
+            facecolor="none",
+            linewidth=2,
+            transform=ccrs.PlateCarree(),
+        )
 
         output_dir = Path(tempfile.gettempdir()) / "study_area_app"
         output_dir.mkdir(parents=True, exist_ok=True)
@@ -105,34 +144,54 @@ def create_map(country, region, department, municipality, inset_pos="upper right
 
     except Exception as e:
         import traceback
+
         traceback.print_exc()
         last_error_message = str(e)
         return None
+
 
 # UI
 app_ui = ui.page_fluid(
     ui.panel_title("🗺️ Study Area Map Generator"),
     ui.layout_columns(
         ui.card(
-            ui.input_select("country", "🌍 Select a Country:", choices=country_list, selected="Niger"),
+            ui.input_select(
+                "country",
+                "🌍 Select a Country:",
+                choices=country_list,
+                selected="Niger",
+            ),
             ui.input_select("region", "Region:", choices=[""]),
             ui.input_select("department", "Department:", choices=[""]),
             ui.input_select("municipality", "Municipality:", choices=[""]),
-            ui.input_radio_buttons("inset", "👁️ Inset map position:", choices=list(inset_positions.keys()), selected="upper right"),
+            ui.input_radio_buttons(
+                "inset",
+                "👁️ Inset map position:",
+                choices=list(inset_positions.keys()),
+                selected="upper right",
+            ),
             ui.input_text("title", "📝 Map title:", value="Fig. 1 Study Area Map"),
-            ui.input_radio_buttons("basemap_source", "🗺️ Select Basemap:", choices=["OSM", "Google Hybrid"], selected="OSM"),
-            ui.input_action_button("update", "📊 Generate Map", class_="btn btn-primary mt-2"),
+            ui.input_radio_buttons(
+                "basemap_source",
+                "🗺️ Select Basemap:",
+                choices=["OSM", "Google Hybrid"],
+                selected="OSM",
+            ),
+            ui.input_action_button(
+                "update", "📊 Generate Map", class_="btn btn-primary mt-2"
+            ),
             class_="p-3 border shadow-sm bg-light",
-            width=4
+            width=4,
         ),
         ui.card(
             ui.output_image("map_output"),
             ui.output_ui("message_output"),
             class_="p-3 border shadow-sm bg-white",
-            width=8
-        )
-    )
+            width=8,
+        ),
+    ),
 )
+
 
 def server(input, output, session):
     @reactive.effect
@@ -160,8 +219,12 @@ def server(input, output, session):
     def update_municipalities():
         department = input.department()
         if department:
-            municipalities = sorted(gadm3[gadm3["NAME_2"] == department]["NAME_3"].unique())
-            session.send_input("municipality", choices=[""] + municipalities, selected="")
+            municipalities = sorted(
+                gadm3[gadm3["NAME_2"] == department]["NAME_3"].unique()
+            )
+            session.send_input(
+                "municipality", choices=[""] + municipalities, selected=""
+            )
         else:
             session.send_input("municipality", choices=[""], selected="")
 
@@ -193,7 +256,7 @@ def server(input, output, session):
             selected_municipality(),
             inset_pos=selected_inset(),
             title=selected_title(),
-            basemap=selected_basemap()
+            basemap=selected_basemap(),
         )
 
     @output
@@ -209,7 +272,11 @@ def server(input, output, session):
     def message_output():
         path = current_map()
         if not path or not path.exists() or path.is_dir():
-            return ui.p(f"❌ Unable to generate map: {last_error_message}", class_="text-danger fw-bold")
+            return ui.p(
+                f"❌ Unable to generate map: {last_error_message}",
+                class_="text-danger fw-bold",
+            )
         return None
+
 
 app = App(app_ui, server)

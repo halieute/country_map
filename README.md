@@ -6,38 +6,38 @@
 
 ## 🧭 Features
 
-- Select a country from a global list using a GeoJSON file  
-- Alternatively, search for any city or location using OpenStreetMap (OSM)  
-- Automatically zooms and centers on the selected area  
-- Customize the map title  
-- Choose inset map position (upper right or bottom right)  
-- Switch between **OpenStreetMap** and **Google Hybrid** basemaps  
-- Adjust zoom level for better spatial focus  
+- Select a country from a global list using a GeoJSON file
+- Alternatively, search for any city or location using OpenStreetMap (OSM)
+- Automatically zooms and centers on the selected area
+- Customize the map title
+- Choose inset map position (upper right or bottom right)
+- Switch between **OpenStreetMap** and **Google Hybrid** basemaps
+- Adjust zoom level for better spatial focus
 - High-resolution map outputs include:
-  - Country or region boundaries  
-  - North arrow  
-  - Coordinate grid  
-  - Scale bar  
-  - Inset map for geographic context  
+  - Country or region boundaries
+  - North arrow
+  - Coordinate grid
+  - Scale bar
+  - Inset map for geographic context
 
 ---
 
 ## 🚀 Live Demo
 
-Try the app here:  
+Try the app here:
 👉 [https://cesarivanalvarez.shinyapps.io/country-map](https://cesarivanalvarez.shinyapps.io/country-map)
 
-We welcome your feedback to improve the tool. Please consider completing this short survey:  
+We welcome your feedback to improve the tool. Please consider completing this short survey:
 👉 [https://forms.office.com/r/DTfbymb1nF](https://forms.office.com/r/DTfbymb1nF)
 
 ---
 
 ## 📷 Screenshots
 
-### Country Selection Example  
+### Country Selection Example
 ![Ecuador map](docs/example_map_ecuador.png)
 
-### City Search Example  
+### City Search Example
 ![Berlin map](docs/example_map_berlin.png)
 
 ---
@@ -72,7 +72,7 @@ pip install -r requirements.txt
 python -m shiny run --reload app.py
 ```
 
-Then open your browser at:  
+Then open your browser at:
 [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
 ---
@@ -94,35 +94,35 @@ country-map-generator/
 
 ## 📦 Dependencies
 
-- [Shiny for Python](https://shiny.posit.co/py/)  
-- GeoPandas  
-- Cartopy  
-- Matplotlib  
-- geopy  
-- matplotlib-scalebar  
+- [Shiny for Python](https://shiny.posit.co/py/)
+- GeoPandas
+- Cartopy
+- Matplotlib
+- geopy
+- matplotlib-scalebar
 
 ---
 
 ## 🧠 Use Cases
 
-- Create clear and consistent maps for study areas  
-- Avoid the need for complex desktop GIS software  
+- Create clear and consistent maps for study areas
+- Avoid the need for complex desktop GIS software
 - Ideal for:
-  - Remote sensing projects  
-  - Environmental and climate research  
-  - Academic theses and fieldwork documentation  
-  - Scientific publications and presentations  
+  - Remote sensing projects
+  - Environmental and climate research
+  - Academic theses and fieldwork documentation
+  - Scientific publications and presentations
 
 ---
 
 ## 👨‍💻 Authors
 
-- **Dr. Cesar Ivan Alvarez** – University of Augsburg  
-- **Dr. Ana Claudia Moreira** – University of Porto  
-- **Dr. Izar Sinde** – Universidad Politécnica de Madrid  
+- **Dr. Cesar Ivan Alvarez** – University of Augsburg
+- **Dr. Ana Claudia Moreira** – University of Porto
+- **Dr. Izar Sinde** – Universidad Politécnica de Madrid
 - **MSc. Juan Gabriel Mollocana** – Universidad Politécnica Salesiana
 
-📧 ssouley@uta.cv  
+📧 ssouley@uta.cv
 🔗 [LinkedIn Profile](https://www.linkedin.com/in/cesar-ivan-alvarez-0847253a/)
 
 ---
