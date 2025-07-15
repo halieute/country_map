@@ -200,19 +200,19 @@ def server(input, output, session):
         country = input.country()
         if country:
             regions = sorted(gadm1[gadm1["COUNTRY"] == country]["NAME_1"].unique())
-            session.send_input("region", choices=[""] + regions, selected="")
+            ui.update_select("region", choices=[""] + regions, selected="")
         else:
-            session.send_input("region", choices=[""], selected="")
+            ui.update_select("region", choices=[""], selected="")
 
     @reactive.effect
     @reactive.event(input.region)
     def update_departments():
         region = input.region()
         if region:
-            departments = sorted(gadm2[gadm2["COUNTRY"] == region]["COUNTRY"].unique())
-            session.send_input("department", choices=[""] + departments, selected="")
+            departments = sorted(gadm2[gadm2["NAME_1"] == region]["NAME_2"].unique())
+            ui.update_select("department", choices=[""] + departments, selected="")
         else:
-            session.send_input("department", choices=[""], selected="")
+            ui.update_select("department", choices=[""], selected="")
 
     @reactive.effect
     @reactive.event(input.department)
@@ -222,11 +222,11 @@ def server(input, output, session):
             municipalities = sorted(
                 gadm3[gadm3["NAME_2"] == department]["NAME_3"].unique()
             )
-            session.send_input(
+            ui.update_select(
                 "municipality", choices=[""] + municipalities, selected=""
             )
         else:
-            session.send_input("municipality", choices=[""], selected="")
+            ui.update_select("municipality", choices=[""], selected="")
 
     selected_country = reactive.Value("Niger")
     selected_region = reactive.Value("")
