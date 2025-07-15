@@ -85,7 +85,7 @@ country-map-generator/
 ├── gadm41_NER_2.json  # GeoJSON with second-level administrative boundaries
 ├── gadm41_NER_3.json  # GeoJSON with third-level administrative boundaries
 ├──  requirements.txt # Python dependencies
-├── LICENCE           # Project license                
+├── LICENCE           # Project license
 ├── docs/             # Documentation files
 │   ├── example_bilam.png # Example map with inset
 │   └── example_doungas.png # Example map with inset
