@@ -25,20 +25,20 @@
 ## 🚀 Live Demo
 
 Try the app here:
-👉 [https://cesarivanalvarez.shinyapps.io/country-map](https://cesarivanalvarez.shinyapps.io/country-map)
+👉 []()
 
 We welcome your feedback to improve the tool. Please consider completing this short survey:
-👉 [https://forms.office.com/r/DTfbymb1nF](https://forms.office.com/r/DTfbymb1nF)
+👉 []()
 
 ---
 
 ## 📷 Screenshots
 
 ### Country Selection Example
-![Ecuador map](docs/example_map_ecuador.png)
+![Ecuador map]()
 
 ### City Search Example
-![Berlin map](docs/example_map_berlin.png)
+![Berlin map]()
 
 ---
 
@@ -49,7 +49,7 @@ You can run the app locally using **Python ≥ 3.10**.
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/osoivan/country-map-generator.git
+
 cd country-map-generator
 ```
 
