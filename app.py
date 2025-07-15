@@ -193,7 +193,6 @@ app_ui = ui.page_fluid(
             ui.markdown("[📄 GitHub Profile](https://github.com/halieute"),
             ui.markdown("📧 Email: ssouley@uta.cv"),
             class_="p-3 border shadow-sm bg-light",
-            class_="p-3 border shadow-sm bg-light",
             width=4,
         ),
         ui.card(
