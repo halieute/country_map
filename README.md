@@ -35,10 +35,10 @@ We welcome your feedback to improve the tool. Please consider completing this sh
 ## 📷 Screenshots
 
 ### Country Selection Example
-![Ecuador map]()
+![Ecuador map](docs/example_bilma.png)
 
 ### City Search Example
-![Berlin map]()
+![Berlin map](docs/example_doungas.png)
 
 ---
 
