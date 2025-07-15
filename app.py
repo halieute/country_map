@@ -184,7 +184,7 @@ app_ui = ui.page_fluid(
             ui.markdown("**💬 Credits:** Souleymane Maman Nouri Souley"),
             ui.markdown("[👥 LinkedIn Profile](www.linkedin.com/in/souleymanemamannourisouley)"),
             ui.markdown("[📄 GitHub Profile](https://github.com/halieute")
-            ui.markdown("📧 Email: souleymanemamannourisouley1995@gamil.com"),
+            ui.markdown("📧 Email: ssouley@uta.cv"),
             class_="p-3 border shadow-sm bg-light",
             class_="p-3 border shadow-sm bg-light",
             width=4,
