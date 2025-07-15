@@ -1,6 +1,6 @@
 # 🗺️ Study Area Map Generator
 
-**Study Area Map Generator** is a web-based Python Shiny application developed to help researchers, students, and educators generate **publication-ready maps** of countries or specific places. The tool is especially useful for scientific papers, theses, reports, and presentations where spatial context needs to be clearly communicated.
+**Study Area Map Generator** is a web-based Python Shiny application developed to help researchers, students, and educators generate **publication-ready maps** of countries or specific places. The tool is especially useful for scientific papers, these, reports, and presentations where spatial context needs to be clearly communicated.
 
 ---
 
@@ -110,7 +110,7 @@ country-map-generator/
 - Ideal for:
   - Remote sensing projects
   - Environmental and climate research
-  - Academic theses and fieldwork documentation
+  - Academic these and fieldwork documentation
   - Scientific publications and presentations
 
 ---
