@@ -62,7 +62,7 @@ def create_map(
             gdf_info = gadm1[gadm1["NAME_1"] == region]
             label_text = region
         elif country:
-            gdf_info = gadm0[gadm0["NAME_0"] == country]
+            gdf_info = gadm0[gadm0["COUNTRY"] == country]
             label_text = country
         else:
             last_error_message = "Please select a study area."
@@ -127,7 +127,7 @@ def create_map(
         inset_ax.add_image(inset_tiler, 2)
         inset_ax.add_feature(cfeature.BORDERS, linestyle=":", edgecolor="black")
         inset_ax.add_feature(cfeature.COASTLINE, linewidth=0.5)
-        gadm0[gadm0["NAME_0"] == country].plot(
+        gadm0[gadm0["COUNTRY"] == country].plot(
             ax=inset_ax,
             edgecolor="red",
             facecolor="none",
@@ -199,7 +199,7 @@ def server(input, output, session):
     def update_regions():
         country = input.country()
         if country:
-            regions = sorted(gadm1[gadm1["NAME_0"] == country]["NAME_1"].unique())
+            regions = sorted(gadm1[gadm1["COUNTRY"] == country]["NAME_1"].unique())
             session.send_input("region", choices=[""] + regions, selected="")
         else:
             session.send_input("region", choices=[""], selected="")
